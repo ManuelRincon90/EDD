@@ -1,0 +1,60 @@
+/*****************************************************************************************************************************
+Fecha: 1 octubre 2024
+Autor: Daniel Rosas
+Tema: Taller Arboles
+Estructuras de datos
+******************************************************************************************************************************/
+
+TAD KDTree
+
+Datos Mínimos:
+
+    raiz: señala el nodo que corresponde a la raíz del KD-Tree.
+    dimension: entero, representa la dimensión del espacio en el que se encuentra el árbol (por ejemplo, 2 para 2D, 3 para 3D).
+
+Comportamiento:
+
+    KDTree(dimension), crea un KD-Tree con raíz nula y la dimensión especificada.
+    ~KDTree()
+    esVacio(), booleano, devuelve verdadero si la raíz del KD-Tree es nula.
+    obtenerRaiz(), Nodo, retorna un apuntador a la raíz del KD-Tree.
+    fijarRaiz(nraiz), recibe un apuntador a Nodo y lo asigna a la raíz del KD-Tree.
+    insertarNodo(val), booleano, inserta un nodo con valor val en el KD-Tree, manteniendo la estructura, retorna verdadero si se inserta.
+    eliminarNodo(val), booleano, elimina un nodo de valor val, retorna verdadero si se elimina.
+    buscarNodo(val), retorna un apuntador al nodo de valor val.
+    rangoBusqueda(region), lista de nodos, retorna todos los nodos que están dentro de la región especificada.
+    preOrden(), imprime en preorden el KD-Tree.
+    posOrden(), imprime en posorden el KD-Tree.
+    inOrden(), imprime en inorden el KD-Tree.
+    nivelOrden(), imprime en nivel orden el KD-Tree.
+    tamano(), entero, retorna el número de nodos en el KD-Tree.
+
+TAD Nodo
+
+Datos Mínimos:
+
+    T dato: contenido del nodo.
+    hijos: contenedor, contiene apuntadores a los nodos hijos (izquierdo y derecho).
+    dimension: entero, indica la dimensión a la que pertenece este nodo (0 para la primera dimensión, 1 para la segunda, etc.).
+
+Comportamiento:
+
+    Nodo(), crea un nodo vacío.
+    Nodo(const T& val, dimension), crea un nodo a partir de un valor y la dimensión correspondiente.
+    ~Nodo()
+    obtenerDato(), retorna el dato que es contenido por el nodo.
+    fijarDato(val), reemplaza el valor de un nodo por val.
+    obtenerHijos(), retorna el conjunto de nodos hijos.
+    fijarHijos(hijoIzq, hijoDer), fija los nodos hijos izquierdo y derecho.
+    adicionarHijoIzquierdo(nval), adiciona un nodo hijo izquierdo creado a partir de val.
+    adicionarHijoDerecho(nval), adiciona un nodo hijo derecho creado a partir de val.
+    eliminarHijoIzquierdo(), booleano, elimina el nodo hijo izquierdo, retorna verdadero si se elimina.
+    eliminarHijoDerecho(), booleano, elimina el nodo hijo derecho, retorna verdadero si se elimina.
+    buscarHijo(val), Nodo*, retorna un apuntador al hijo que contiene el valor val.
+    limpiarHijos(), elimina la lista de hijos.
+    numHijos(), entero, retorna el número de hijos del nodo.
+    tamano(), entero, retorna el número de nodos del subárbol que tiene como raíz el nodo.
+    preOrden(), imprime el subárbol que tiene como raíz el nodo en preorden.
+    posOrden(), imprime el subárbol que tiene como raíz el nodo en posorden.
+    inOrden(), imprime el subárbol que tiene como raíz el nodo en inorden.
+    nivelOrden(int nivel, int lvActual), imprime el subárbol que tiene como raíz el nodo en nivel orden.
