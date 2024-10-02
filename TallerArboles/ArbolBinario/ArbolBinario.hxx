@@ -1,3 +1,10 @@
+/*****************************************************************************************************************************
+Fecha: 1 octubre 2024
+Autor: Daniel Rosas
+Tema: Taller Arboles
+Estructuras de datos
+******************************************************************************************************************************/
+
 #include "ArbolBinario.h"
 #include "NodoBinario.h"
 
@@ -74,7 +81,8 @@ bool ArbolBinario<T>::eliminar(T& val)
         //Nodo* nuevo = borrar->hijoIzq->extremo_der();
 		NodoBinario<T>* nuevo = borrar->hijoIzq->extremo_der();
         borrar->fijarDato(nuevo->obtenerDato());
-		delete(nuevo);    }
+		delete(nuevo);
+    }
     else if(borrar->hijoDer != NULL)
     {
 		
