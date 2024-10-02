@@ -1,0 +1,55 @@
+TAD ArbolAVL
+
+Datos Mínimos:
+
+    raiz: señala el nodo que corresponde a la raíz del árbol.
+
+Comportamiento:
+
+    ArbolAVL(), crea un árbol AVL con raíz nula.
+    ArbolAVL(val), crea un árbol AVL con raíz de valor val.
+    ~ArbolAVL()
+    esVacio(), booleano, devuelve verdadero si la raíz del árbol es nula.
+    obtenerRaiz(), Nodo, retorna un apuntador a la raíz del árbol.
+    fijarRaiz(nraiz), recibe un apuntador a Nodo y lo asigna a la raíz del árbol.
+    insertarNodo(val), booleano, inserta un nodo con valor val en el árbol manteniendo las propiedades del AVL, retorna verdadero si se inserta.
+    eliminarNodo(val), booleano, elimina un nodo de valor val, retorna verdadero si se elimina.
+    buscarNodo(val), retorna un apuntador al nodo de valor val.
+    altura(), entero, retorna la altura del árbol.
+    tamano(), entero, retorna el número de nodos en el árbol.
+    preOrden(), imprime en preorden el árbol.
+    posOrden(), imprime en posorden el árbol.
+    inOrden(), imprime en inorden el árbol.
+    nivelOrden(), imprime en nivel orden el árbol.
+    rotarIzquierda(nodo), realiza una rotación a la izquierda sobre el nodo especificado.
+    rotarDerecha(nodo), realiza una rotación a la derecha sobre el nodo especificado.
+    balancear(nodo), ajusta el árbol para mantener la propiedad AVL tras inserciones o eliminaciones.
+
+TAD Nodo
+
+Datos Mínimos:
+
+    T dato: contenido del nodo.
+    desc: contenedor, contiene un conjunto apuntadores a nodos.
+    altura: entero, altura del nodo en el árbol.
+
+Comportamiento:
+
+    Nodo(), crea un nodo vacío.
+    Nodo(const T& val), crea un nodo a partir de un valor.
+    ~Nodo()
+    obtenerDato(), retorna el dato que es contenido por el nodo.
+    fijarDato(val), reemplaza el valor de un nodo por val.
+    obtenerDesc(), retorna el conjunto de descendientes.
+    fijarDesc(listaDesc), fija el conjunto de nodos listaDesc como el conjunto de descendientes del nodo.
+    adicionarDesc(nval), adiciona un nodo creado a partir de val al conjunto de descendientes.
+    eliminarDesc(val), booleano, elimina el nodo de valor val del conjunto de descendientes, retorna verdadero si se elimina.
+    buscarDesc(val), Nodo*, retorna un apuntador al descendiente de valor val.
+    limpiarLista(), elimina la lista de descendientes.
+    numDesc(), entero, retorna el número de descendientes del nodo.
+    altura(), entero, retorna la altura del nodo.
+    tamano(), entero, retorna el número de nodos del subárbol que tiene como raíz el nodo.
+    preOrden(), imprime el árbol que tiene como raíz el nodo en preorden.
+    posOrden(), imprime el árbol que tiene como raíz el nodo en posorden.
+    inOrden(), imprime el árbol que tiene como raíz el nodo en inorden.
+    nivelOrden(int nivel, int lvActual), imprime el árbol que tiene como raíz el nodo en nivel orden.
