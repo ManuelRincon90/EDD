@@ -1,0 +1,60 @@
+/*****************************************************************************************************************************
+Fecha: 1 octubre 2024
+Autor: Daniel Rosas
+Tema: Taller Arboles
+Estructuras de datos
+******************************************************************************************************************************/
+
+TAD QuadTree
+
+Datos Mínimos:
+
+    raiz: señala el nodo que corresponde a la raíz del QuadTree.
+    region: representa la región que cubre el nodo.
+
+Comportamiento:
+
+    QuadTree(), crea un QuadTree con raíz nula.
+    QuadTree(region), crea un QuadTree con raíz en la región especificada.
+    ~QuadTree()
+    esVacio(), booleano, devuelve verdadero si la raíz del QuadTree es nula.
+    obtenerRaiz(), Nodo, retorna un apuntador a la raíz del QuadTree.
+    fijarRaiz(nraiz), recibe un apuntador a Nodo y lo asigna a la raíz del QuadTree.
+    insertarNodo(val, region), booleano, inserta un nodo con valor val en la región especificada, manteniendo la estructura del QuadTree, retorna verdadero si se inserta.
+    eliminarNodo(val), booleano, elimina un nodo de valor val, retorna verdadero si se elimina.
+    buscarNodo(val), retorna un apuntador al nodo de valor val.
+    dividir(nodo), divide el nodo en sus cuatro cuadrantes.
+    preOrden(), imprime en preorden el QuadTree.
+    posOrden(), imprime en posorden el QuadTree.
+    inOrden(), imprime en inorden el QuadTree.
+    nivelOrden(), imprime en nivel orden el QuadTree.
+    tamano(), entero, retorna el número de nodos en el QuadTree.
+    numNodos(), entero, retorna el número de nodos que contiene el subárbol a partir del nodo dado.
+
+TAD Nodo
+
+Datos Mínimos:
+
+    T dato: contenido del nodo.
+    hijos: contenedor, contiene cuatro apuntadores a los nodos hijos (noroeste, noreste, suroeste, sureste).
+    region: representa la región del nodo en el espacio.
+
+Comportamiento:
+
+    Nodo(), crea un nodo vacío.
+    Nodo(const T& val, region), crea un nodo a partir de un valor y una región.
+    ~Nodo()
+    obtenerDato(), retorna el dato que es contenido por el nodo.
+    fijarDato(val), reemplaza el valor de un nodo por val.
+    obtenerHijos(), retorna el conjunto de nodos hijos.
+    fijarHijos(listaHijos), fija el conjunto de nodos listaHijos como los hijos del nodo.
+    adicionarHijo(pos, nval), adiciona un Nodo creado a partir de val en la posición especificada (0: noroeste, 1: noreste, 2: suroeste, 3: sureste).
+    eliminarHijo(pos), booleano, elimina el nodo hijo en la posición especificada, retorna verdadero si se elimina.
+    buscarHijo(val), Nodo*, retorna un apuntador al hijo de valor val.
+    limpiarHijos(), elimina la lista de hijos.
+    numHijos(), entero, retorna el número de hijos del nodo.
+    tamano(), entero, retorna el número de nodos del subárbol que tiene como raíz el nodo.
+    preOrden(), imprime el subárbol que tiene como raíz el nodo en preorden.
+    posOrden(), imprime el subárbol que tiene como raíz el nodo en posorden.
+    inOrden(), imprime el subárbol que tiene como raíz el nodo en inorden.
+    nivelOrden(int nivel, int lvActual), imprime el subárbol que tiene como raíz el nodo en nivel orden.
