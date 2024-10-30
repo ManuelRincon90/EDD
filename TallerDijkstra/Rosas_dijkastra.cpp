@@ -4,24 +4,22 @@ Autor: Daniel Rosas
 Tema: Taller Dijkstra
 Estructuras de datos
 ******************************************************************************************************************************/
-
-
 #include <iostream>
 #include <climits>
 using namespace std;
 
 // Función para encontrar el vértice con la mínima distancia que aún no ha sido incluido en el conjunto Tset
 int miniDist(int distance[], bool Tset[], int size) {
-    int minimum = INT_MAX, index;
+    int minimum = INT_MAX, index = -1; // Inicializa index a -1
 
     // Itera sobre todos los vértices para encontrar el de menor distancia
     for (int k = 0; k < size; k++) {
-        if (Tset[k] == false && distance[k] <= minimum) {
+        if (!Tset[k] && distance[k] < minimum) { // Cambiado a < para evitar índices duplicados
             minimum = distance[k];
             index = k;
         }
     }
-    return index;
+    return index; // Devuelve el índice del vértice con la distancia mínima
 }
 
 // Implementación del algoritmo de Dijkstra
@@ -46,7 +44,7 @@ void DijkstraAlgo(int graph[7][7], int src, int size) {
         for (int j = 0; j < size; j++) {
             // Actualiza distance[j] solo si no está en Tset, hay una arista desde m a j,
             // y el peso total del camino desde src hasta j a través de m es menor que el valor actual de distance[j]
-            if (!Tset[j] && graph[m][j] && distance[m] != INT_MAX && distance[m] + graph[m][j] < distance[j]) {
+            if (!Tset[j] && graph[m][j] > 0 && distance[m] != INT_MAX && distance[m] + graph[m][j] < distance[j]) {
                 distance[j] = distance[m] + graph[m][j];
             }
         }
@@ -55,13 +53,13 @@ void DijkstraAlgo(int graph[7][7], int src, int size) {
     // Imprime la distancia mínima desde el nodo fuente a cada vértice
     cout << "Vertice \t Distancia desde la fuente" << endl;
     for (int k = 0; k < size; k++) {
-        char str = 65 + k; // Convierte el índice a un carácter ('A' para 0, 'B' para 1, etc.)
-        cout << str << "\t\t" << distance[k] << endl;
+        char str = 'A' + k; // Convierte el índice a un carácter ('A' para 0, 'B' para 1, etc.)
+        cout << str << "\t\t" << (distance[k] == INT_MAX ? -1 : distance[k]) << endl; // Muestra -1 si no es alcanzable
     }
 }
 
 int main() {
-    // Matriz de adyacencia basada en el grafo dado en la imagen (ajustar según el grafo)
+    // Matriz de adyacencia basada en el grafo dado
     int graph[7][7] = {
         {0, 2, 4, 0, 0, 0, 0},
         {2, 0, 0, 5, 0, 0, 0},
@@ -77,3 +75,4 @@ int main() {
 
     return 0;
 }
+
